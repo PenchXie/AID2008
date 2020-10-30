@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单控件的使用</title>
+</head>
+<body>
+    <!--
+        表单控件可以单独使用 也可以配合表单元素一起使用
+        表单元素有提交数据的功能 单独使用需要自定义提交数据的方式
+    -->
+    <!-- 表单元素 form -->
+    <form action="" method="GET">
+            <p>
+                姓名: <input type="text" name="username">
+            </p>
+            <p>
+                密码: <input type="password" name="pwd">
+            </p>
+            <!--
+                提交后
+                file:///home/tarena/AID2008/month03/day01/form2.html?username=%E8%BF%AA%E8%BF%A6&pwd=123
+            -->
+            <p>
+                性别: <input name="sex" type="radio" value="male">男
+                <input name="sex" type="radio" value="female">女
+            </p>
+            <p>
+                头像: <input name="pic" type="file">
+            </p>
+            <p>
+                地区:
+                <select name="area" id="">
+                    <option value="1">迪迦</option>
+                    <option value="2">戴拿</option>
+                </select>
+            </p>
+            <p>
+                其他:
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </p>
+            <input type="submit">
+    </form>
+</body>
+</html>
