@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器</title>
+    
+    <style>
+        /* div{
+            color:red;
+        } */
+        #tip{
+            color:red;
+        }
+        .center{
+            /* 文本水平对齐 居中 */
+            text-align: center;
+        }
+        /* 定义样式类 */
+        .red{
+            color: white;
+            background-color: red;
+        }
+        /* h1.red
+           div#tip */
+        
+        ul p{
+            width: 800px;
+            height: 50px;
+            background-color: pink;
+        }
+        ul>li>p{
+            background-color: red;
+        }
+
+        h1.red{
+            /* 过渡 样式发生改变时 不会马上变化 而是在规定时间内发生变化 */
+            transition: all 0.5s;
+        }
+        h1.red:hover{
+            background-color: blue;
+            transition: all 0.5s;
+            /* 鼠标指针变成手 */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <p></p>
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+    </ul>
+    <h1 class="red center">以梦为马，越骑越傻</h1>
+    <div class="center">楼上说得对</div>
+    <p class="center">俺也一样</p>
+    <div id="tip">No bug, old Fe</div>
+</body>
+</html>
