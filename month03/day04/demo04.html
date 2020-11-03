@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运算符</title>
+</head>
+<body>
+    <script>
+        // 赋值运算
+        // var age = 18;
+        // console.log(12 / 0);
+        // console.log(age += 5);
+        // // ++ 前缀与后缀不同
+        // console.log(age ++);
+        // console.log(age);
+        // console.log( ++ age);
+        // console.log(age)
+        // var i = 0;
+        // console.log(i++ + ++i + i++);
+
+        // 比较运算
+        // console.log('acd' > 'b');
+        // console.log('acd' > 'a');
+        // console.log('a' > 1);
+        // console.log('1.1' > 1);
+        // console.log(null == undefined);
+        // console.log(null == 0);
+        // console.log(NaN == null);
+        // console.log(null === undefined);
+        // console.log(NaN == NaN); // false
+        // console.log(1 > null); // true
+        // console.log(-1 < null);
+        // console.log(1 > undefined);
+
+        // 逻辑运算
+        // var year = 2000;
+        // var res = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+        // console.log(res);
+
+        // 三目运算
+        var a = 10;
+        var b = 20;
+        a > b ? console.log(a): console.log(b);
+
+        // 接收用户的输入 输入一个年份 判断是否为闰年
+        var year = parseInt(prompt('请输入一个年份'))
+        year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? alert(`${year}是闰年`): alert(`${year}是平年`)
+    </script>
+</body>
+</html>

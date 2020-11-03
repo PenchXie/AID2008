@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习2</title>
+    <style>
+        .parent{
+            width: 179px;
+            border: 1px solid black;
+        }
+        div.red{
+            width: 32px;
+            height: 20px;
+            line-height: 20px;
+            background-color: #e4393c;
+            font-size: 14px;
+            text-align: center;
+            color: white;
+            margin-left: 1px;
+            border-radius: 0 3px 3px 0;
+        }
+        div.t1{
+            margin-left: 44px;
+            font-size: 18px;
+        }
+        div.t2{
+            text-align: center;
+            color: gray;
+            font-size: 14px;
+        }
+        div.img{
+            /* 文本水平居中对图片也生效 */
+            /* text-align: center; */
+
+            /* 设置父元素div大小和图片一致 让父元素水平居中 */
+            width: 89px;
+            height: 95px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="red">低价</div>
+        <div class="t1">母婴馆</div>
+        <div class="t2">秒杀低至亿元</div>
+        <div class="img">
+            <img src="./img01.png" alt="">
+        </div>
+    </div>
+</body>
+</html>
