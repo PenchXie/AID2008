@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面元素的操作</title>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1" class="red">
+        吕泽菜逼
+    </div>
+    <script>
+        // 查找元素
+        // console.log(d1);
+        var d1 = document.getElementById('d1');
+        console.log(d1);
+
+        var div = document.getElementsByTagName('div');
+        console.log(div);
+        console.log(div[0]);
+
+        var red = document.getElementsByClassName('red');
+        console.log(red);
+        console.log(red[0]);
+        // 操作元素
+        // 获取内容 修改内容
+        console.log(d1.innerText);
+        console.log(d1.innerHTML);
+        d1.innerHTML = '<h1>天王盖地虎</h1>';
+    </script>
+    <script>
+        // 操作页面元素属性
+        console.log(d1.getAttribute('id'));
+        console.log(d1.id);
+
+        d1.onclick = function() {
+            if (d1.className == 'red') {
+                d1.className = 'blue';
+            } else {
+                d1.className = 'red';
+            }
+            
+        }
+    </script>
+</body>
+</html>

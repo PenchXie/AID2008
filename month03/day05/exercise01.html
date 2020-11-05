@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习1</title>
+</head>
+<body>
+    <input type="text" id="key">
+    <button id="btn">显示</button>
+    <h1 id="show"></h1>
+
+    <script>
+        var key = document.getElementById('key');
+        // console.log(key);
+        var btn = document.getElementById('btn');
+        var show = document.getElementById('show');
+
+        btn.onclick = function() {
+            show.innerText = key.value;
+        };
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav</title>
+    <style>
+        /* 清除列表默认样式 */
+        ul {
+            margin: 0;
+            padding: 0;
+            /* 清除小圆点 */
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            margin: 0 10px;
+        }
+
+        .first {
+            color: gray;
+        }
+
+        .item {
+            padding: 0 3px;
+            /* 过渡 */
+            transition: all 0.5s;
+        }
+
+        .active,
+        .item:hover {
+            color: white;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="first">难度:</li>
+        <li class="item">全部</li>
+        <li class="item">初级</li>
+        <li class="item">中级</li>
+        <li class="item">高级</li>
+    </ul>
+
+    <script>
+        // 查找页面元素 全部-高级
+        var items = document.getElementsByClassName('item');
+        // for (var i = 0; i < items.length; i++) {
+        //     // console.log(items[i]);
+        //     items[i].onclick = (function (i) {
+        //         return function () {
+        //             alert(items[i].innerText);
+        //             for (var j = 0; j < items.length; j++) {
+        //                 if (i == j) {
+        //                     items[j].className = "item active";
+        //                 } else {
+        //                     items[j].className = "item";
+        //                 }
+        //             }
+        //         }
+        //     })(i)
+        // }
+        for (let i = 0; i < items.length; i++) {
+            // console.log(items[i]);
+            items[i].onclick = function () {
+
+                for (var j = 0; j < items.length; j++) {
+
+                        items[j].className = "item";
+                    }
+                this.className = "item active";
+                alert(items[i].innerText);
+            }
+        }
+    </script>
+</body>
+
+</html>

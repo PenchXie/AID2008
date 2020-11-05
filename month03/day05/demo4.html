@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分离事件绑定</title>
+</head>
+
+<body>
+    <input id="btn" type="button" value="click me">
+    <script>
+        // 查找页面元素
+        var btn = document.getElementById('btn');
+        console.log(btn);
+        console.log(btn.id);
+        console.log(btn.value);
+        btn.value = '是兄弟就来点我';
+        console.log(btn.onclick);
+
+        // document.getElentmentById('btn')
+        // var lzcb = function() {
+        //     alert('吕泽菜逼');
+        // }
+        // btn.onclick = lzcb
+        btn.onclick = function () {
+            alert('吕泽菜逼')
+        }
+        console.log(btn.onclick)
+    </script>
+</body>
+
+</html>
