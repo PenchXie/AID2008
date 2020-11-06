@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组方法</title>
+</head>
+<body>
+    <script>
+        // var arr = [0, 1, 2, 3, 4];
+        // arr.push(5);
+        // arr.push(6, 7, 8, 9);
+        // console.log(arr);
+        // var res = arr.pop();
+        // console.log(res, arr);
+
+        // arr.unshift(-1, -2);
+        // console.log(arr);
+
+        // arr.shift();
+        // console.log(arr);
+
+        // var res = arr.splice(5, 0, 5, 6, 7);
+        // console.log(res, arr);
+
+        // var str = arr.toString();
+        // console.log(str, arr);
+
+        // var date = [2020, 11, 5];
+        // console.log(date.join('-'));
+
+        // console.log(arr.reverse());
+
+        var arr = [68, 200, 7, 15, 33];
+        arr.sort()
+        console.log(arr);
+
+        // function asc(a, b) {
+        //     return a - b;
+        // }
+        // function desc(a, b) {
+        //     return b - a;
+        // }
+        // arr.sort(asc);
+        // console.log(arr);
+        // arr.sort(desc);
+        // console.log(arr);
+
+        arr.sort(function (a, b) {
+            return a - b;
+        });
+        console.log(arr);
+    </script>
+</body>
+</html>

@@ -8,13 +8,21 @@
 <body>
     <script>
         var arr = [1, 2, 3, 4, 5];
+        // console.log(arr);
+        // console.log(arr[1]);
+        // // 取最后一个值
+        // console.log(arr[arr.length - 1]);
+        // arr[2] = 3.14;
+        // console.log(arr);
+        // console.log(arr.slice(2, 5));
+        arr[20] = 37;
         console.log(arr);
-        console.log(arr[1]);
-        // 取最后一个值
-        console.log(arr[arr.length - 1]);
-        arr[2] = 3.14;
+        arr.length = 13;
         console.log(arr);
-        console.log(arr.slice(2, 5));
+
+        for (i in arr) {
+            console.log(i, arr[i]);
+        }
     </script>
 </body>
 </html>
