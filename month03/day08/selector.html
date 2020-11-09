@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selector 选择器</title>
+</head>
+<body>
+    <ul>
+        <li>天山鸟飞绝</li>
+        <li>万径人踪灭</li>
+        <li>孤舟蓑笠翁</li>
+        <li>独钓寒江雪</li>
+    </ul>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        // 找#first后相邻的第一个li
+        // $('#first~li').css('color', 'red');
+
+        // $('li:first').css('color', 'red');
+        // $('li:last').css('color', 'red');
+
+        // 索引为奇数
+        // $('li:odd').css('color', 'red');
+        // 索引为偶数
+        // $('li:even').css('color', 'red');
+        // 指定下标
+        // $('li:eq(2)').css('color', 'red');
+        $('li').eq(0).css('color', 'red');
+        // 索引大于1
+        $('li:gt(1)').css('font-size', '30px');
+        // 否定筛选
+        // $('li:not(li:eq(0))').css('text-align', 'center');
+        $('li').not('li:eq(0)').css('text-align', 'center');
+    </script>
+</body>
+</html>

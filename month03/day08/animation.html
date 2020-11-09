@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画效果</title>
+    <style>
+        #item{
+            width: 600px;
+            height: 600px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">隐藏</button>
+    <button id="btn2">上推</button>
+    <button id="btn3">淡隐</button>
+    <div id="item"></div>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        // 如果按钮中的文字是隐藏，隐藏div并将按钮文字变为显示，反之亦然
+        $('#btn1').click(function () {
+            if ($('#btn1').html() == '隐藏') {
+                $('#item').hide(1000, function () {
+                    $('#btn1').html('显示');
+                });
+            } else {
+                $('#item').show(1000, function () {
+                    $('#btn1').html('隐藏');
+                });
+            }
+            
+        })
+        $('#btn2').click(function () {
+            if ($('#btn2').html() == '上推') {
+                $('#item').slideUp(1000, function () {
+                    $('#btn2').html('下拉');
+                })
+            } else {
+                $('#item').slideDown(1000, function () {
+                    $('#btn2').html('上推');
+                })
+            }
+        })
+        $('#btn3').click(function () {
+            if ($('#btn3').html() == '淡隐') {
+                $('#item').fadeOut(1000, function () {
+                    $('#btn3').html('淡现');
+                })
+            } else {
+                $('#item').fadeIn(1000, function () {
+                    $('#btn3').html('淡隐');
+                })
+            }
+        })
+    </script>
+</body>
+</html>

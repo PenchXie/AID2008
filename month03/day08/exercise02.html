@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作元素属性</title>
+</head>
+<body>
+    <div>
+        <input type="text" placeholder="请输入手机号" id="phone">
+        <button id="btn">发送验证码</button>
+    </div>
+    
+    <input type="checkbox" name="" id="canSubmit">请阅读并同意协议
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        // 用户点击按钮时，判断canSubmit是否被选中，选中发送验证码，否则提示用户
+        // console.log($('#canSubmit').attr('checked'));
+        // $('#canSubmit').attr('type', 'text');
+        console.log($('#canSubmit').prop('checked'));
+
+        $('#btn').click(function () {
+            // 删除phone的属性placeholder
+            $('#phone').removeAttr('placeholder');
+            if ($('#canSubmit').prop('checked')) {
+                alert('发送验证码');
+            } else {
+                alert('请先阅读协议！');
+            }
+        })
+
+    </script>
+</body>
+</html>
