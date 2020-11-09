@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise01</title>
+    <style>
+        div{
+            width: 122px;
+            padding: 0;
+            position: fixed;
+            top: 50%;
+            right: -123px;
+            margin-top: -150px;
+            /* 隐藏效果 */
+            /* display: none; */
+            transition: all 1s;
+        }
+        #close{
+            margin-top: -5px;
+        }
+        #close:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="ad">
+        <img src="./imgs/img02-5.png" alt="">
+        <!-- 关闭 -->
+        <img src="./imgs/img01-5.png" alt="" id="close">
+    </div>
+    <script>
+        var ad = document.getElementById('ad');
+        var close = document.getElementById('close');
+
+        setTimeout(function () {
+            // 将ad的样式属性改为block
+            // console.log(ad);
+            // ad.style = 'display: block';
+            ad.style = 'right: 0';
+        }, 3000)
+
+        // close按钮被单击时将ad移除屏幕
+        close.onclick = function () {
+            ad.style = 'right: -123px';
+            // 再次设置一次性定时器 3秒后显示ad
+            setTimeout(function () {
+            // 将ad的样式属性改为block
+            // console.log(ad);
+            // ad.style = 'display: block';
+            ad.style = 'right: 0';
+        }, 3000)
+        }
+    </script>
+</body>
+</html>

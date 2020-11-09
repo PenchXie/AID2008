@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        #slider {
+            width: 739px;
+            height: 419px;
+            position: relative;
+        }
+
+        #slider>.item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* 透明 */
+            opacity: 0;
+            transition: all 0.5s;
+        }
+
+        #slider>.active {
+            /* 不透明 */
+            opacity: 1;
+        }
+
+        #ll, #rr {
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+        }
+        #rr {
+            right: 0;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="slider">
+        <img class="item active" src="./imgs/gm1-6.jpg" alt="">
+        <img class="item" src="./imgs/gm2-6.jpg" alt="">
+        <img class="item" src="./imgs/gm3-6.jpg" alt="">
+        <img class="item" src="./imgs/gm4-6.jpg" alt="">
+        <img class="item" src="./imgs/gm5-6.jpg" alt="">
+        <div>
+            <img id="ll" src="./imgs/l1-6.png" alt="">
+            <img id="rr" src="./imgs/r1-6.png" alt="">
+        </div>
+    </div>
+
+    <script>
+        // 取出所有图片
+        var items = document.getElementsByClassName('item');
+        var index = 0;
+        var ll = document.getElementById('ll');
+        var rr = document.getElementById('rr');
+        console.log(items);
+        // 定义切换图片功能
+        function changeImg(index) {
+            for (var i = 0; i < items.length; i++) {
+                items[i].className = 'item';
+            }
+            items[index].className = 'item active';
+        }
+
+        // 当用户点击rr时，向右切换图片
+        rr.onclick = function () {
+            if (index == items.length - 1) {
+                index = -1;
+            }
+            index++;
+            changeImg(index);
+        }
+        // 当用户点击ll时，向左切换图片
+        ll.onclick = function () {
+            if (index == 0) {
+                index = items.length;
+            }
+            index--;
+            changeImg(index);
+        }
+    </script>
+</body>
+
+</html>

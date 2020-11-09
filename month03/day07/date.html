@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date日期</title>
+</head>
+<body>
+    <script>
+        // 不传参数表示当前时间
+        var now = new Date();
+        console.log(now);
+        var y = new Date('2020.11.6 18:30:23');
+        console.log(y);
+
+        // get获取
+        console.log(now.getFullYear());
+
+        // 获取时间戳 单位 毫秒 ms
+        now.getTime();
+        // 求时间差
+        // 求当前时间到今天18点还有多久
+        // 获取当前时间的时间对象与今天18点的时间对象，计算时间差转换成时分秒
+        var end = new Date('2020.11.6 18:00:00');
+        var gap = parseInt((end - now) / 1000);
+        console.log(gap);
+        var hour = parseInt(gap / 3600);
+        var minute = parseInt(gap % 3600 / 60);
+        var second = gap % 60;
+        // 补0
+        function addZero(num){
+            return String(num).length > 1 ? num : '0' + num
+        }
+        console.log(`${addZero(hour)}:${addZero(minute)}:${addZero(second)}`);
+    </script>
+</body>
+</html>
