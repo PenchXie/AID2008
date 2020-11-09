@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒模型-外边距</title>
+    <style>
+        body,p,h1,ul,ol,li,input{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            /* 块元素水平居中的方法 */
+            /* margin: 0 auto;
+            padding-top: 1px;
+            margin-bottom: 200px; */
+            margin-right: 200px;
+        }
+        p{
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            /* margin: 0; */
+            /* margin-left: 300px;
+            margin-top: 100px; */
+            margin-left: 200px;
+        }
+        h1{
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1></h1>
+    </div>
+    <p></p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function sayHello() {
+        //     alert('hello world')
+        // }
+
+        // sayHello();
+
+        function sayHello(uname) {
+            alert(`Hello ${uname}`);
+        }
+
+        var uname = prompt('Enter a username');
+        sayHello(uname);
+
+        function myAdd(a, b = 10) {
+            console.log(a, b)
+            // console.log(a + b)
+            return a + b
+        }
+        console.log(myAdd(5, 5));
+        console.log(myAdd(6));
+    </script>
+</body>
+
+</html>

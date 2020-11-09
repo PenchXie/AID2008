@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车图标</title>
+    <style>
+        #cart{
+            width: 150px;
+            height: 50px;
+            border: 1px solid gray;
+            position: relative;
+        }
+        #cart>div{
+            color: gray;
+            line-height: 50px;
+            text-align: center;
+        }
+        #cart>i{
+            color: white;
+            background-color: red;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            font-style: normal;
+            font-weight: bold;
+            border-radius: 45% 45% 45% 0;
+            position: absolute;
+            right: 5px;
+            top: -10px;
+        }
+        #cart>span{
+            color: #666666;
+            position: absolute;
+            right: 10px;
+            top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cart">
+        <div>我的购物车</div>
+        <span>&gt;</span>
+        <i>1</i>
+    </div>
+</body>
+</html>

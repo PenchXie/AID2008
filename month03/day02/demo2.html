@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器权重</title>
+    <style>
+        #title{
+            /* id选择器权重 100 */
+            background-color: red;
+        }
+        .t1{
+            /* 权重 10 */
+            background-color: blue;
+        }
+        h1#title{
+            /* 权重 1+100 */
+            background-color: green;
+        }
+        h1#title:hover{
+            /* 权重 1+100+10 */
+            background-color: yellow;
+        }
+        #nav>h1{
+            background-color: aqua;
+        }
+        #nav h1{
+            background-color: blueviolet;
+        }
+        #name, .bgcloor, h1, div, p{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title" class="t1">
+        hello world
+    </h1>
+    <div id="nav">
+        <h1 class="t1">h1标签</h1>
+    </div>
+</body>
+</html>

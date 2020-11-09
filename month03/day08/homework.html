@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>级联下拉菜单</title>
+</head>
+
+<body>
+    <select name="" id="city">
+        <option value="">请选择</option>
+    </select>
+    <select name="" id="area">
+        <option value="">请选择</option>
+    </select>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        var arr = [{
+            'cityId': 101,
+            'cityName': '北京',
+            'areas': ['东城', '朝阳']
+        }, 
+        {
+            'cityId': 102,
+            'cityName': '上海',
+            'areas': ['黄埔', '静安']
+        }
+        ];
+        // 遍历数组 去除数据拼接字符串放入页面中
+        $.each(arr, function (i, e) {
+            $('#city').append(`<option value="${e.cityId}">${e.cityName}</option>`);
+        })
+        // 城市下拉菜单改变时加载地区
+        $('#city').on('change', function () {
+            // console.log($(this).val());
+            $.each(arr, function (i, e) {
+                if ($('#city').val() == e.cityId) {
+                    $('#area').html('<option value="">请选择</option>');
+                    $.each(e.areas, function (i, area) {
+                        $('#area').append(`<option value="">${area}</option>`);
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

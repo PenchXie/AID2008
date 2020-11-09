@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作页面内容</title>
+</head>
+<body>
+    <input type="text" id="key">
+    <button id="btn">click me</button>
+    <h1 id="show"></h1>
+
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        // $('#btn')[0].onclick = function () {
+        //     $('#show').text($('#key').val());
+        // }
+        $('#btn').click(function () {
+            $('#show').text($('#key').val())
+        })
+    </script>
+</body>
+</html>

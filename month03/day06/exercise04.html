@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习4</title>
+    <style>
+        ul, li{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="./imgs/bk0-8.jpg" alt="" id="img0"></li>
+        <li><img src="./imgs/bk1-8.jpg" alt="" id="img1"></li>
+        <li><img src="./imgs/bk2-8.jpg" alt="" id="img2"></li>
+        <li><img src="./imgs/bk3-8.jpg" alt="" id="img3"></li>
+    </ul>
+    <script>
+        // 生成随机数，通过随机数拼接出图片路径，将拼接的图片路径放在页面上显示
+        var numArr = [];
+        while (numArr.length < 4) {
+            num = parseInt(Math.random() * 10);
+            console.log(numArr);
+            console.log(num);
+            if (numArr.indexOf(num) != -1) {
+                continue;
+            }
+            numArr.push(num);
+        }
+        console.log(numArr);
+        for (i = 0; i < 4; i++) {
+            var img = document.getElementById('img' + i);
+            img.src = `./imgs/bk${numArr[i]}-8.jpg`;
+        }
+    </script>
+</body>
+</html>

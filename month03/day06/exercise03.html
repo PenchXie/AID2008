@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习3</title>
+    <style>
+        p {
+            width: 300px;
+        }
+
+        span {
+            background-color: orangered;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="key">
+    <button id="btn">查找</button>
+    <p id="str">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, natus ab vitae amet excepturi sapiente
+        placeat non maxime omnis sunt magni consectetur. Architecto quis amet consequatur ea illum aliquam aperiam.</p>
+    <script>
+        var btn = document.getElementById('btn');
+        var key = document.getElementById('key');
+        var str = document.getElementById('str');
+        // var origin = str.innerHTML;
+        btn.onclick = function () {
+            var reg = new RegExp(key.value, 'ig');
+            // str.innerHTML = origin;
+            // console.log(reg);
+            if (!reg.test(str.innerText)) {
+                alert('未找到结果');
+                return
+            }
+            str.innerHTML = str.innerText.replace(reg,'<span>' + key.value + '</span>');
+        }
+    </script>
+</body>
+
+</html>

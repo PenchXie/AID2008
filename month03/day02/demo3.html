@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签分类</title>
+    <style>
+        #parent{
+            /* 块元素默认占父元素100%的宽度 */
+            height: 200px;
+            background-color: aqua;
+        }
+        #parent>div{
+            height: 200px;
+            width: 200px;
+            display: inline-block;
+            background-color: bisque;
+        }
+        #parent>span{
+            height: 200px;
+            width: 200px;
+            /* display 设置元素显示规则 */
+            /* 
+                取值 block 以块元素方式显示
+                特点 独占一行 能设置宽高    
+            */
+            /* 
+                取值 inline-block 以行内块方式显示
+                特点 共行显示 能设置宽高
+            */
+            display: inline-block;
+            background-color:fuchsia;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div></div><span></span>
+    </div>
+
+</body>
+</html>

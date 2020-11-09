@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loginWindow</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="md-2018040402-ll cus-win-model js-md-180417-login-cj" id="login_boxxxw">
+        <div class="js-log-type" data-logtype="0">
+            <div class="tit">登录</div>
+            <div id="js_login_form" class="form-ele-box">
+                <div class="form-item clearfix">
+                    <div class="form-inp-area">
+                        <input id="js_account_pm" class="form-input" value="" type="text" cusrule="mail_phone" placeholder="邮箱或手机号" autocomplete="off">
+                        <span class="form-tips">邮箱或手机号格式错误</span>
+                    </div>
+                </div>
+                <div class="form-item clearfix">
+                    <div class="form-inp-area">
+                        <input id="js_password" class="form-input" value="" type="password" placeholder="密码" autocomplete="off">
+                        <span class="form-tips">包含数字、字母、下划线的6-18位</span>
+                    </div>
+                </div>
+                <div id="js_validate_img_area" class="form-item clearfix" style="display: none;">
+                    <div class="form-inp-area">
+                        <input id="js_imgcode" class="form-input pull-left" value="" type="text" placeholder="验证码" style="width: 80px; margin-right: 15px;" autocomplete="off">
+                        <img id="js_validate_img" class="pull-left code-img js-validate-img" src="http://uc.tmooc.cn/validateCode?t=0.612900767507599" height="40px" width="80px" style="cursor:pointer; margin-right: 15px;">
+                        <div class="form-inlineblock pull-left code-btn js-validate-img">
+                            <span class="verflag" style="cursor:pointer;">看不清楚？换一张</span>
+                            <i class="verflag"></i>
+                        </div>
+                        <span class="form-tips">验证码格式错误</span>
+                    </div>
+                </div>
+                <div class="form-item clearfix">
+                    <button id="js_submit_login" class="form-btn form-btn-blue width-100" type="button">登录</button>
+                </div>
+                <div class="form-item clearfix" style="font-size: 12px;">
+                    <div class="form-checkbox pull-left" style="display: none;">
+                        <label><input type="checkbox" checked="checked"><span>下次自动登录</span></label>
+                    </div>
+                    <div class="pull-right color-aaa" style="padding-top: 2px;">
+                        <a href="http://uc.tmooc.cn/login/jumpToUserFindPassword" class="color-aaa">忘记密码</a>&nbsp;|&nbsp;<a href="http://uc.tmooc.cn/login/jumpToRegister" class="color-aaa">注册</a>
+                    </div>
+                </div>
+                <div class="other-loginbox">
+                    <p class="c-tit color-aaa text-center">第三方账号登录</p>
+                    <div class="c-btns">
+                        <div class="c-fbtn">
+                            <a class="c-btn js-log-type-cut"><i class="cusfont cusfont-wechat"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="js-log-type" data-logtype="3" style="display: none;">
+            <div id="js_wx_code_log" class="text-center"></div>
+            <div class="other-loginbox">
+                <div class="c-btns">
+                    <div class="c-fbtn js-log-type-cut">返回账号登录</div>
+                </div>
+            </div>
+        </div>
+        <span class="cus-win-modelclose js-closewin-btn"><i class="cusfont cusfont-close font-14"></i></span>
+    </div>
+</body>
+</html>

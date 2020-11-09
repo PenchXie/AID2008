@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串对象</title>
+</head>
+
+<body>
+    <script>
+        // // 构造函数
+        // function Dog() {
+        //     this.name = '阿黄';
+        //     this.color = 'yellow';
+        // }
+        // var dog = new Dog();
+        // console.log(dog.name, dog.color);
+        // var arr = new Array(1, 2, 3, 4, 5);
+        // console.log(arr);
+        // var str = 'abcde';
+        // var str2 = new String('abcde');
+        // console.log(str, str2);
+        // console.log(str[3]);
+        // console.log(str.indexOf('c'));
+        // console.log(3 in arr);
+
+        // // 截取字符串
+        // var str = '想念吕泽(菜逼)的第6天';
+        // // 截取菜逼
+        // var cb = str.substring(5, 7);
+        // console.log(cb);
+        // console.log(str.substr(5, 2));
+
+        // 分割字符串
+        var date = '2020/11/05/7/9';
+        console.log(date.split('/', 2));
+
+        // 查找和替换
+        var str = 'I am the bone of my sword';
+        // var reg = /i/ig // g表示global，全局查找，i表示ignore，忽略大小写
+        // var reg = /m/g
+        // console.log(reg.test(str), reg.lastIndex);
+        // console.log(reg.test(str), reg.lastIndex);
+        // console.log(reg.test(str), reg.lastIndex);
+        // var res = str.match(reg);
+        // console.log(res);
+        
+        var reg = /m/g
+        var res = str.replace(reg, 'xz');
+        console.log(res);
+        console.log(str);
+    </script>
+</body>
+
+</html>

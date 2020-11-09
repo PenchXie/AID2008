@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历元素</title>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        // window.onload = function () {
+        //     // i表示当前索引值，e为当前页面元素，dom对象，由each函数提供参数
+        //     $('li').each(function (i, e) {
+        //         console.log(e.innerHTML);
+        //     })
+        // }
+
+        $(function () {
+            console.log('文档加载完成之后执行');
+        })
+
+        $(function () {
+            // i表示当前索引值，e为当前页面元素，dom对象，由each函数提供参数
+            $('li').each(function (i, e) {
+                console.log(e.innerHTML);
+            })
+        })
+
+        var arr = [0, 1, 2, 3, 4];
+        $.each(arr, function (i, e) {
+            console.log(e);
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+    
+</body>
+</html>
