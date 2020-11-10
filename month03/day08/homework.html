@@ -8,37 +8,59 @@
 </head>
 
 <body>
+    <select name="" id="prov">
+        <option value="0">请选择</option>
+    </select>
     <select name="" id="city">
-        <option value="">请选择</option>
+        <option value="0">请选择</option>
     </select>
     <select name="" id="area">
-        <option value="">请选择</option>
+        <option value="0">请选择</option>
     </select>
     <script src="./js/jquery.min.js"></script>
+    <script src="./js/data.js"></script>
     <script>
-        var arr = [{
-            'cityId': 101,
-            'cityName': '北京',
-            'areas': ['东城', '朝阳']
-        }, 
-        {
-            'cityId': 102,
-            'cityName': '上海',
-            'areas': ['黄埔', '静安']
-        }
-        ];
-        // 遍历数组 去除数据拼接字符串放入页面中
-        $.each(arr, function (i, e) {
-            $('#city').append(`<option value="${e.cityId}">${e.cityName}</option>`);
+        // console.log(data[0].provname);
+        var index = -1;
+        var $prov = $('#prov');
+        var $city = $('#city');
+        var $area = $('#area');
+        // 一级选项，省份
+        $.each(data, function (i, prov) {
+            $('#prov').append(`<option value="${prov.provId}">${prov.provname}</option>`);
         })
-        // 城市下拉菜单改变时加载地区
-        $('#city').on('change', function () {
-            // console.log($(this).val());
-            $.each(arr, function (i, e) {
-                if ($('#city').val() == e.cityId) {
-                    $('#area').html('<option value="">请选择</option>');
-                    $.each(e.areas, function (i, area) {
-                        $('#area').append(`<option value="">${area}</option>`);
+        // 选择省份后改变加载城市
+        $prov.on('change', function () {
+            if ($prov.val() == 0) {
+                $city.html('<option value="0">请选择</option>');
+                $area.html('<option value="0">请选择</option>');
+            }
+            $.each(data, function (i, prov) {
+                if ($prov.val() == prov.provId) {
+                    // console.log($('#prov').val());
+                    // console.log(i);
+                    index = i;
+                    $city.html('<option value="0">请选择</option>');
+                    $area.html('<option value="0">请选择</option>');
+                    $.each(prov.citys, function (i, city) {
+                        // console.log(city.cityname)
+                        $city.append(`<option value="${city.cityId}">${city.cityname}</option>`);
+                    })
+                }
+            })
+        })
+        // 选择城市后改变加载地区
+        $city.on('change', function () {
+            if ($city.val() == 0) {
+                $area.html('<option value="0">请选择</option>');
+            }
+            // console.log($('#city').val());
+            $.each(data[index].citys, function (i, city) {
+                // console.log(i);
+                if ($city.val() == city.cityId) {
+                    $area.html('<option value="0">请选择</option>');
+                    $.each(city.areas, function (i, area) {
+                        $area.append(`<option value="0">${area.areaname}</option>`);
                     })
                 }
             })
