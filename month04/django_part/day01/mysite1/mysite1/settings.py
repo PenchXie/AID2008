@@ -25,13 +25,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8&h8xem&@+@lb_sw5y5xv$e$_@a09b=bvmc+67igl9!l4uz**v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# 项目运行模式(调试模式或生产模式)
+# 调试模式下代码发生改变时, 服务自动重启, 提供详细错误信息
+# 生产模式下, 服务不会自动重新, 不会有详细错误信息, 没有默认页面
 DEBUG = True
-
-ALLOWED_HOSTS = []
+# Web项目的IP地址, 调试模式下, 默认给两个127.0.0.1, localhost
+# 生产模式下不会给默认值, 自己添加云服务器的IP地址
+ALLOWED_HOSTS = ['127.0.0.1', '176.50.8.4']
 
 
 # Application definition
-
+# 一个项目有多个应用(相当于子模块), 应用使用时需要注册, 因此创建应用后要先注册
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,9 +54,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+# 项目的主路由配置
 ROOT_URLCONF = 'mysite1.urls'
-
+# 模板页的配置
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -75,6 +79,7 @@ WSGI_APPLICATION = 'mysite1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# 数据库配置相关, 将修改为mysql
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -105,9 +110,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
