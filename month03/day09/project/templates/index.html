@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客项目-首页</title>
+    <!-- 引入外部样式文件 -->
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/easyFader.css">
+</head>
+<body>
+    <!-- <div id="header"></div>
+    <div id="main"></div>
+    <div id="footer"></div> -->
+    <!-- 网页头部内容 -->
+    <header>
+        <!-- 导航栏 -->
+        <nav>
+            <!-- logo -->
+            <h1 class="logo">
+                <a href="#">个人博客</a>
+            </h1>
+            <!-- 导航列表 -->
+            <ul>
+                <li><a href="#">网站首页</a></li>
+                <li><a href="#">文章列表</a></li>
+                <li><a href="#">我的相册</a></li>
+                <li><a href="#">留言</a></li>
+                <li><a href="#">关于我</a></li>
+                <li><a href="#">发表博客</a></li>
+            </ul>
+            <!-- 登录注册 -->
+            <div>
+                <!-- 元素右浮动，上方元素先浮动靠右显示 -->
+                <a href="#" id="register">注册</a>
+                <a href="#" id="login">登录</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 网页主题内容 -->
+    <main>
+        <!-- 上方轮播图 侧边栏 -->
+        <div>
+            <!-- 轮播图 -->
+            <div class="banner">
+                <!-- 轮播图父元素 -->
+                <ul class="fader">
+                    <!-- 每一张轮播的图片 -->
+                    <!-- 使用JS加载轮播图 -->
+                    <!-- <li class="slide">
+                        <a href="#">
+                            <img src="../static/images/banner03.jpg" alt="">
+                            <span>python-win10下使用定时任务执行程序</span>
+                        </a>
+                    </li> -->
+                    <!-- 左右箭头  页标 -->
+                    <li class="fader_controls">
+                        <div class="page prev" data-target="prev">&lt;</div>
+                        <div class="page next" data-target="next">&gt;</div>
+
+                        <ul class="pager_list">
+                            <!-- <li></li> -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 右侧边栏图片 -->
+            <ul class="toppic">
+                <li>
+                    <a href="#">
+                        <!-- 遮罩层 -->
+                        <i>
+                            <img src="../static/images/toppic01.jpg" alt="">
+                        </i>
+                        <div>linux升级py3，安装pip,svn</div>
+                        <span>Linux</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i>
+                            <img src="../static/images/toppic02.jpg" alt="">
+                        </i>
+                        <div>吕泽的菜，如此持久</div>
+                        <span>Python</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 清除上方元素浮动的影响 -->
+        <div class="clear"></div>
+        <!-- 下方博客列表 -->
+        <div class="blogsbox">
+            <!-- 每一条博客 -->
+            <!-- <div class="blogs"> -->
+                <!-- JS加载每条博客 -->
+                <!-- 博客标题 -->
+                <!-- <h3 class="blogtitle">
+                    <a href="#">
+                        sbw的脑回路为何如此清奇
+                    </a>
+                </h3> -->
+                <!-- 博客图片 -->
+                <!-- <div class="blogpic">
+                    <img src="../static/images/e.jpg" alt="">
+                </div> -->
+                <!-- 文本 -->
+                <!-- <p class="blogtext">
+                    本文探讨了SBW在AI教育的优势与运用。谁会成为AI和大数据时代的第一菜逼教师? 这本已是一个不需要争论的问题...
+                </p> -->
+                <!-- 信息列表 -->
+                <!-- <ul>
+                    <li class="author">皮皮猪</li>
+                    <li class="lname">菜无极限</li>
+                    <li class="timer">2020-11-11</li>
+                    <li class="view">4743665</li>
+                    <li class="like">9999+</li>
+                </ul> -->
+            <!-- </div> -->
+        </div>
+    </main>
+    <!-- 网页尾部内容 -->
+    <footer>
+        <div>
+            Design by
+            <a href="#">个人博客</a>
+            <a href="#">大大大大大大大大大菜B-1</a>
+        </div>
+    </footer>
+
+    <!-- 引入外部JS文件 -->
+    <script src="../static/js/blogs.data.js"></script>
+    <script src="../static/js/fader.data.js"></script>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.easyfader.min.js"></script>
+    <script src="../static/js/index.js"></script>
+</body>
+</html>
