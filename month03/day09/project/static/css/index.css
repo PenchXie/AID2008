@@ -19,6 +19,7 @@ body{
     /* font-family: monospace;
     font-size: 16px; */
     font: 16px monospace;
+    background-color: #f2f2f0;
 }
 /* *********Heaher************ */
 header{
@@ -101,6 +102,52 @@ ul.fader{
     color: white;
     padding: 5px 0 5px 40px;
 }
+/* 轮播图左右箭头 */
+ul.fader .prev,.next{
+    width: 50px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    margin-top: -40px;
+    color: white;
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 80px;
+    text-align: center;
+    /* 隐藏元素 */
+    opacity: 0;
+    transition: all 0.5s;
+}
+ul.fader .prev{
+    left: 70px;
+}
+ul.fader .next{
+    right: 70px;
+}
+ul.fader:hover .prev{
+    left: 10px;
+    opacity: 0.8;
+}
+ul.fader:hover .next{
+    right: 10px;
+    opacity: 0.8;
+}
+/* 轮播图页标 */
+.pager_list{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.pager_list>li{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+}
 
 /* toppic 侧边栏样式 */
 .toppic{
@@ -111,6 +158,20 @@ ul.fader{
 }
 .toppic>li{
     position: relative;
+    background-color: black;
+}
+.toppic>li img{
+    width: 100%;
+    height: 251px;
+}
+/* 遮罩层 为图片添加特殊样式时使用 */
+.toppic li i{
+    display: block;
+    opacity: 0.7;
+    transition: all 0.5s;
+}
+.toppic li:hover i{
+    opacity: 1;
 }
 .toppic>li span{
     background-color: rgba(0, 0, 0, 0.7);
@@ -131,11 +192,108 @@ ul.fader{
     right: 0;
     padding: 5px 40px;
 }
-.toppic>li img{
-    width: 100%;
-    height: 251px;
-}
+
 /* 找到最后一个子元素li */
 .toppic li:last-child{
     margin-top: 20px;
+}
+
+/******** 博客列表 ********/
+div.clear{
+    clear: both;
+    margin-bottom: 20px;
+}
+.blogsbox{
+    width: 100%;
+    /* height: 500px; */
+    /* border: 5px solid red; */
+}
+/* 每一条博客 */
+.blogs{
+    background-color: white;
+    /* height: 300px; */
+    /* 调整边框和内容的距离 */
+    padding: 20px;
+    /* 每条博客之间的距离 */
+    margin-bottom: 20px;
+    /* 解决子元素浮动 父元素高度为0问题 */
+    overflow: hidden;
+}
+.blogtitle{
+    font-size: 20px;
+}
+.blogtitle>a{
+    color: #555555;
+}
+.blogtitle>a:hover{
+    color: #337ab7;
+}
+/* 博客图片 */
+.blogpic{
+    width: 30%;
+    height: 170px;
+    float: left;
+    margin: 10px 20px 0 0;
+    /* 溢出部分隐藏 */
+    overflow: hidden;
+}
+.blogpic>img{
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+}
+.blogpic>img:hover{
+    /* 缩放 */
+    transform: scale(1.1);
+}
+/* 右侧文本 */
+.blogtext{
+    font-size: 14px;
+    color: #566573;
+    margin-top: 20px;
+}
+/* 信息列表 */
+.blogs>ul>li{
+    height: 18px;
+    float: left;
+    font-size: 12px;
+    color: #748594;
+    margin: 30px 15px 0 0;
+    line-height: 18px;
+    /* 让文字向右移动显示出背景图 */
+    padding-left: 18px;
+    background: url('../images/auicon.jpg') no-repeat;
+}
+.blogs>ul>li:hover{
+    color: black;
+    cursor: pointer;
+}
+.blogs .lname{
+    background-position-y: -24px;
+}
+.blogs .timer{
+    background-position-y: -45px;
+}
+.blogs .view{
+    background-position-y: -66px;
+}
+.blogs .like{
+    background-position-y: -86px;
+}
+
+/******** footer ********/
+footer{
+    width: 100%;
+    background-color: #555555;
+    color: #a5a4a4;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+}
+footer a{
+    color: #a5a4a4;
+}
+footer a:hover{
+    color: #c1edf2;
 }

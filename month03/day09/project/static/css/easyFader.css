@@ -1,0 +1,47 @@
+/* 对index.css 的样式补充 */
+
+/* 为父元素设置大小 */
+ul.fader{
+    padding-top: 70%;
+}
+.fader .slide{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    /* 添加过渡效果 */
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+/* 使用轮播功能时easyFader会自动为当前图片添加z-index:3覆盖其余内容 */
+.prev,.next{
+    z-index: 4
+}
+.prev:hover,.next:hover{
+    cursor: pointer;
+}
+
+.pager_list{
+    z-index: 4;
+}
+/* 修改页标样式 */
+.pager_list li{
+    margin: 0 5px;
+    /* 利用文本缩进隐藏文本 */
+    text-indent: -9999px;
+    /* color: transparent; 不太好，鼠标可能选中数字 */
+    opacity: 0.5;
+}
+
+/* 为当前显示和鼠标移入页标设置样式 */
+.pager_list li.active,.pager_list li:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* 重写toppic调整距离 */
+.toppic li:last-child{
+    margin-top: 25px;
+}
