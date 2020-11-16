@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            parent
+        {% endblock title %}
+    </title>
+</head>
+<body>
+<div id="nav">
+    <a href="/">首页</a>
+    <a href="/news">新闻</a>
+    <a href="/sports">体育</a>
+    <a href="{% url 'mili' %}">军事反向解析</a>
+    <a href="/military">军事</a>
+    <a href="{% url 'pgn' '100' %}">pagen 带参的url反向解析</a>
+</div>
+<div id="content">
+    {% block content %}
+        <h3>首页头条信息...</h3>
+    <p>{{ name }}</p>
+    {% endblock content %}
+</div>
+<div id="footer">
+    备案号:lzmlyCB 联系方式:123-123-123
+</div>
+</body>
+</html>
