@@ -21,7 +21,7 @@ from mysite3 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_view),
-    path('news', views.news_view),
+    # path('news', views.news_view),
     path('sports', views.sports_view),
     path('military', views.military_view, name='mili'),
     path('page/<int:n>', views.pagen_view, name='pgn'),
@@ -31,4 +31,5 @@ urlpatterns = [
 
     # 分布式路由
     path('user/', include('user.urls')),
+    path('news/', include('news.urls')),
 ]
