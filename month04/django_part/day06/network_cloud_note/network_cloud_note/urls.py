@@ -1,4 +1,4 @@
-"""mysite4 URL Configuration
+"""network_cloud_note URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -16,15 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from mysite4 import views
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('bookstore/', include('bookstore.urls')),
-    path('set_cookie', views.set_cookie),
-    path('get_cookie', views.get_cookie),
-    path('delete_cookie', views.delete_cookie),
-    path('set_session', views.set_session),
-    path('get_session', views.get_session),
-    path('delete_session', views.delete_session),
+    path('user/', include('user.urls')),
+    path('note/', include('note.urls')),
 ]
