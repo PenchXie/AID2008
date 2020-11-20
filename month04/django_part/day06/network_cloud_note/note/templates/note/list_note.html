@@ -5,6 +5,30 @@
     <title>笔记列表</title>
 </head>
 <body>
-
+<table border="1" cellspacing="0">
+    <tr>
+        <td>id</td>
+        <td>title</td>
+        <td>content</td>
+        <td>created time</td>
+        <td>last updated time</td>
+        <td>user</td>
+        <td>action</td>
+    </tr>
+    {% for note in notes %}
+    <tr>
+        <td>{{ note.id }}</td>
+        <td>{{ note.title }}</td>
+        <td>{{ note.content | truncatechars:'10'}}...</td>
+        <td>{{ note.created_time }}</td>
+        <td>{{ note.updated_time }}</td>
+        <td>{{ note.user_id }}</td>
+        <td>
+            <a href="">update</a>
+            <a href="">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
 </body>
 </html>

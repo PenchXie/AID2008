@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
 from note.models import Note
+from user.models import User
 
 
 def login_check(func):
@@ -34,4 +35,6 @@ def add_view(request):
         return HttpResponse('添加笔记成功!')
 
 def list_view(request):
-    return None
+    notes = Note.objects.all()
+    users = User.objects.all()
+    return render(request, 'note/list_note.html', locals())
