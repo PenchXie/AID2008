@@ -3,7 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/month04/django/day01/mysite1" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/month04/django_part/day07/mysite7" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month04/django_part/day08/mysite8" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
