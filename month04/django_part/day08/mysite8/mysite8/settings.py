@@ -133,3 +133,5 @@ EMAIL_HOST = 'smtp.qq.com' # 腾讯QQ邮箱 SMTP 服务器地址
 EMAIL_PORT = 25  # SMTP服务的端口号
 EMAIL_HOST_USER = '631855078@qq.com'  # 发送邮件的QQ邮箱
 EMAIL_HOST_PASSWORD = 'sejtzlvqwuvtbecc'  # 在QQ邮箱->设置->帐户-
+
+STATIC_ROOT = '/home/tarena/mysite8_static/static'
