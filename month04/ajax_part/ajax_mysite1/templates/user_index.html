@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user_index</title>
+</head>
+<body>
+    <button id="btn">show data</button>
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody id="show"></tbody>
+    </table>
+</body>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script>
+    $(function() {
+        $('#btn').click(function() {
+            $.ajax({
+                type: 'get',
+                url: '/user/all',
+                dataType: 'json',
+                // 虽然数据响应类型为json, 但是jquery会自动将json数据转化回原来的对象
+                // 此处res为字典结构的数据, 即为views中get_users函数中的字典
+                success: function(res) {
+                    var html = '';
+                    $.each(res, function(i, obj) {
+                        html += "<tr>";
+                        html += "<td>" + obj.username + "</td>";
+                        html += "<td>" + obj.age + "</td>";
+                        html += "</tr>";
+                    });
+                    // console.log(html);
+                    $('#show').html(html);
+                }
+            })
+        })
+    })
+</script>
+</html>

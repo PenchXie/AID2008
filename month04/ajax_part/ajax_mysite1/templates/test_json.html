@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test_json</title>
+</head>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<body>
+    <button id="btn">test_json</button>
+</body>
+<script>
+    $(function() {
+        $('#btn').click(function() {
+            // json对象
+            var json_obj = {
+                "username": "lvze",
+                "age": 34,
+            };
+            console.log(json_obj.username);
+            console.log(json_obj.age);
+            // json数组
+            var json_arr = [
+                {
+                    "username": "sbw",
+                    "age": 43,
+                },
+                {
+                    "username": "mbg",
+                    "age": 65,
+                },
+            ];
+            $(json_arr).each(function(index, obj) {
+                console.log(index, obj.username, obj.age);
+            });
+            $.each(json_arr, function(index, obj) {
+                console.log(index, obj.username, obj.age);
+            });
+        })
+    })
+</script>
+</html>
