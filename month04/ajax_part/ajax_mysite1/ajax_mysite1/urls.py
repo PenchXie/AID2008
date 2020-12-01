@@ -26,5 +26,9 @@ urlpatterns = [
     path('test_jq_get', views.test_jq_get),
     path('test_json', views.test_json),
     path('make_json_server', views.make_json_server),
-    path('user/', include('user.urls'))
+    path('user/', include('user.urls')),
+    path('register', views.register_view),
+    path('cross', views.test_cors),
+    path('cross_server', views.cross_server),
+    path('cross_server_json', views.cross_server_json),
 ]
