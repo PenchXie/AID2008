@@ -13,13 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from ddblog import views
+from user import views as user_views
+from btoken import views as btoken_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test_cors', views.test_cors),
     path('test_cors_server', views.test_cors_server),
+    # CBV
+    path('v1/users', user_views.UsersView.as_view()),
+    path('v1/users/', include('user.urls')),
+    path('v1/tokens', btoken_views.TokenView.as_view()),
 ]
+
+urlpatterns += static(settings.MEDIA_URL,
+                      document_root=settings.MEDIA_ROOT)
