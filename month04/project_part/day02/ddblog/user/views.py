@@ -1,12 +1,15 @@
 import json
+import random
 import time
 import jwt
+from django.core.cache import cache
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
 
 from tools.login_dec import login_check
+from tools.sms import YunTongXin
 from user.models import UserProfile
 import hashlib
 from django.conf import settings
@@ -59,7 +62,8 @@ class UsersView(View):
         phone = json_obj['phone']
         password_1 = json_obj['password_1']
         password_2 = json_obj['password_2']
-        print(username, email, phone, password_1, password_2)
+        sms_num = json_obj['sms_num']
+        print(username, email, phone, password_1, password_2, sms_num)
 
         # 1 用户名长度检查
         if len(username) > 11:
@@ -81,6 +85,16 @@ class UsersView(View):
         md5 = hashlib.md5()
         md5.update(password_1.encode())
         password_h = md5.hexdigest()
+
+        # 检查手机和验证码
+        # 从redis数据库中获取验证码
+        cache_key = "sms_%s" % phone
+        old_code = cache.get(cache_key)
+        if not old_code:
+            result = {'code': 10106, 'error': '验证码错误!'}
+        if old_code != int(sms_num):
+            result = {'code': 10107, 'error': '验证码错误!'}
+            return JsonResponse(result)
 
         # 5 添加到数据库
         try:
@@ -137,3 +151,27 @@ def user_avatar(request, username):
 
     result = {'code': 200, 'username': user.username}
     return JsonResponse(result)
+
+
+def sms_view(request):
+    json_str = request.body
+    json_obj = json.loads(json_str)
+    # 获取用户输入的手机号
+    phone = json_obj['phone']
+    # 生成键
+    cache_key = 'sms_%s' % phone
+    # 生成随机的验证码
+    code = random.randint(1000, 9999)
+    # 存储到redis
+    cache.set(cache_key, code, 65)
+    print('--send code %s--' % code)
+    # 目前是同步方式, 方式一
+    # 创建容联云对象
+    x = YunTongXin(settings.SMS_ACCOUNT_ID, settings.SMS_AUTH_TOKEN,
+                   settings.SMS_APP_ID, settings.SMS_TEMPLATES_ID)
+    # 发送短信
+    res = x.run(phone, code)
+    # 希望采用异步方式, 方式二
+    # 消费者函数名.delay()
+    print('--send sms result is %s--' % res)
+    return JsonResponse({'code': 200})
