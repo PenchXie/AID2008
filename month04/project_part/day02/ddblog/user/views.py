@@ -3,7 +3,10 @@ import time
 import jwt
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
 from django.views import View
+
+from tools.login_dec import login_check
 from user.models import UserProfile
 import hashlib
 from django.conf import settings
@@ -99,9 +102,38 @@ class UsersView(View):
         return JsonResponse({'code': 200, 'username': username,
                              'data': {'token': token}})
 
+    @method_decorator(login_check)
+    def put(self, request, username):
+        # 1. 获取用户提交的数据
+        json_str = request.body
+        json_obj = json.loads(json_str)
+        # 2. 从request.myuser中获取要修改的用户
+        user = request.myuser
+        user.sign = json_obj['sign']
+        user.nickname = json_obj['nickname']
+        user.info = json_obj['info']
+        user.save()
+        # 3. 响应(code 200和用户名)
+        result = {'code': 200, 'username': user.username}
+        return JsonResponse(result)
 
 def make_token(username, expire=3600 * 24):
     key = settings.JWT_TOKEN_KEY
     now = time.time()
     payload = {'username': username, 'exp': now + expire}
     return jwt.encode(payload, key, algorithm='HS256')
+
+@login_check
+def user_avatar(request, username):
+    if request.method != 'POST':
+        result = {'code': 10105, 'error': '必须是post请求'}
+        return JsonResponse(result)
+    # 获取已登录用户
+    user = request.myuser
+    # 检查是否拿到了用户信息(没有信息检查装饰器, 有的检查下面代码)
+    print(user)
+    user.avatar = request.FILES['avatar']
+    user.save()
+
+    result = {'code': 200, 'username': user.username}
+    return JsonResponse(result)
