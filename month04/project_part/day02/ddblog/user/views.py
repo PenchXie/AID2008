@@ -13,6 +13,7 @@ from tools.sms import YunTongXin
 from user.models import UserProfile
 import hashlib
 from django.conf import settings
+from user.tasks import send_sms
 
 
 # Create your views here.
@@ -131,11 +132,13 @@ class UsersView(View):
         result = {'code': 200, 'username': user.username}
         return JsonResponse(result)
 
+
 def make_token(username, expire=3600 * 24):
     key = settings.JWT_TOKEN_KEY
     now = time.time()
     payload = {'username': username, 'exp': now + expire}
     return jwt.encode(payload, key, algorithm='HS256')
+
 
 @login_check
 def user_avatar(request, username):
@@ -165,13 +168,14 @@ def sms_view(request):
     # 存储到redis
     cache.set(cache_key, code, 65)
     print('--send code %s--' % code)
-    # 目前是同步方式, 方式一
-    # 创建容联云对象
-    x = YunTongXin(settings.SMS_ACCOUNT_ID, settings.SMS_AUTH_TOKEN,
-                   settings.SMS_APP_ID, settings.SMS_TEMPLATES_ID)
-    # 发送短信
-    res = x.run(phone, code)
+    # # 目前是同步方式, 方式一
+    # # 创建容联云对象
+    # x = YunTongXin(settings.SMS_ACCOUNT_ID, settings.SMS_AUTH_TOKEN,
+    #                settings.SMS_APP_ID, settings.SMS_TEMPLATES_ID)
+    # # 发送短信
+    # res = x.run(phone, code)
     # 希望采用异步方式, 方式二
     # 消费者函数名.delay()
+    res = send_sms.delay(phone, code)
     print('--send sms result is %s--' % res)
     return JsonResponse({'code': 200})

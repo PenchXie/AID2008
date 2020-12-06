@@ -51,6 +51,8 @@ A ny individuals and organizations and not for commercial use, professiona websi
 					alert('登录成功!');
 					window.localStorage.setItem('dnblog_token', res.data.token);
 					window.localStorage.setItem('dnblog_user', res.username);
+					// 跳转到用户列表页
+					window.location = '/' + res.username + '/topics';
 				}else{
 					alert(res.error);
 				}

@@ -28,3 +28,14 @@ def login_check(func):
         return func(request, *args, **kwargs)
 
     return wrapper
+
+def get_user_by_request(request):
+    token = request.META.get('HTTP_AUTHORIZATION')
+    if not token:
+        return None
+    try:
+        res = jwt.decode(token, settings.JWT_TOKEN_KEY)
+    except Exception as e:
+        print("get user jwt error is", e)
+        return None
+    return res['username']
