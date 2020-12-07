@@ -137,7 +137,10 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# True:在数据库中写入的是标准时间, Django的模板页中根据配置文件中的时区设置, 自动的计算当前的时区的时间
+# False:在数据库中直接写入的就是当前时区的时间
+# 前后端分离后, 不再使用Django的模板了, 选择False
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
