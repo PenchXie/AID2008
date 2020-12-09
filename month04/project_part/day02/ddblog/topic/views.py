@@ -8,6 +8,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.cache import cache_page
 
+from message.models import Message
 from tools.cache_dec import topic_cache
 from tools.login_dec import login_check, get_user_by_request
 from topic.models import Topic
@@ -36,6 +37,35 @@ class TopicViews(View):
         #     next_title = None
         (next_id, next_title) = (next_topic.id, next_topic.title) if next_topic else (None, None)
         (last_id, last_title) = (last_topic.id, last_topic.title) if last_topic else (None, None)
+
+        all_messages = Message.objects.filter(topic=author_topic).order_by('-created_time')
+        msg_list = []
+        r_dict = {}
+        for msg in all_messages:
+            if msg.parent_message:
+                # 回复
+                r_dict.setdefault(msg.parent_message, [])
+                r_dict[msg.parent_message].append({
+                    'msg_id': msg.id,
+                    'content': msg.content,
+                    'publisher': msg.user_profile.nickname,
+                    'publisher_avatar': str(msg.user_profile.avatar),
+                    'created_time': msg.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+                })
+            else:
+                # 评论
+                msg_list.append({
+                    'id': msg.id,
+                    'content': msg.content,
+                    'publisher': msg.user_profile.nickname,
+                    'publisher_avatar': str(msg.user_profile.avatar),
+                    'created_time': msg.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+                    'reply':[],
+                })
+        for m in msg_list:
+            if m['id'] in r_dict:
+                m['reply'] = r_dict[m['id']]
+        msg_count = len(msg_list)
         # 生成详情页的返回值
         result = {'code': 200, 'data': {}}
         result['data']['nickname'] = author.nickname
@@ -51,8 +81,8 @@ class TopicViews(View):
         result['data']['next_id'] = next_id
         result['data']['next_title'] = next_title
         # 评论相关
-        result['data']['messages'] = []
-        result['data']['messages_count'] = 0
+        result['data']['messages'] = msg_list
+        result['data']['messages_count'] = msg_count
         # 返回
         return result
 
