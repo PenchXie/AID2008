@@ -1,3 +1,4 @@
+import pymysql
 import requests
 import time
 from fake_useragent import UserAgent
@@ -8,6 +9,16 @@ class ProxySpider():
 	def __init__(self):
 		self.url = 'https://www.kuaidaili.com/free/inha/{}/'
 		self.test_url = 'http://httpbin.org/get'
+		self.db_dict = {
+			"host": "localhost",
+			"port": 3306,
+			"user": "root",
+			"password": "123456",
+			"database": "fgo",
+			"charset": "utf8"
+		}
+		self.db = pymysql.connect(**self.db_dict)
+		self.cur = self.db.cursor()
 
 
 	def get_ip(self, url):
@@ -43,12 +54,18 @@ class ProxySpider():
 
 	def save_ip(self, ip, port):
 		print('{}:{}\033[31m可用\033[0m'.format(ip, port))
+		sql = 'insert into proxies (ip, port) values (%s, %s);'
+		item = [ip, port]
+		self.cur.execute(sql, item)
+		self.db.commit()
 
 	def crawl(self):
 		for page in range(1, 101):
 			page_url = self.url.format(page)
 			self.get_ip(page_url)
 			time.sleep(5)
+		self.cur.close()
+		self.db.close()
 
 if __name__ == '__main__':
 	spider = ProxySpider()
