@@ -312,16 +312,16 @@
                             <form>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <input class="contactus" placeholder="Name" type="text" name="Name">
+                                        <input class="contactus" placeholder="Name" type="text" name="Name" id="name">
                                     </div>
                                     <div class="col-sm-12">
-                                        <input class="contactus" placeholder="Phone" type="text" name="Email">
+                                        <input class="contactus" placeholder="Phone" type="text" name="Email" id="phone">
                                     </div>
                                     <div class="col-sm-12">
-                                        <input class="contactus" placeholder="Email" type="text" name="Email">
+                                        <input class="contactus" placeholder="Email" type="text" name="Email" id="email">
                                     </div>
                                     <div class="col-sm-12">
-                                        <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
+                                        <textarea class="textarea" placeholder="Message" type="text" name="Message" id="message"></textarea>
                                     </div>
                                     <div class="col-sm-12">
                                         <button class="send">Send</button>
@@ -383,6 +383,36 @@
                 $(this).removeClass('transition');
             });
         });
+        // send按钮点击函数
+        $('.send').click(function () {
+            var name = $('#name');
+            var phone = $('#phone');
+            var email = $('#email');
+            var message = $('#message');
+            var post_data = {
+                "name": name,
+                "phone": phone,
+                "email": email,
+                "message": message,
+            }
+            console.log(post_data);
+
+            $ajax({
+                url: 'http://127.0.0.1:8000/send_email',
+                type: 'post',
+                dataType: 'json',
+                data : JSON.stringify(post_data),
+                contentType: 'application/json',
+                success: function(res) {
+                    if (res.code == 200) {
+                        alert('发送成功!');
+                    }else{
+                        alert('错误!');
+                    }
+                }
+            })
+        })
+        
     </script>
 </body>
 
