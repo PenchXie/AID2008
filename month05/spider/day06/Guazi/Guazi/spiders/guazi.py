@@ -43,7 +43,7 @@ class GuaziSpider(scrapy.Spider):
             # 随着response一起交给callback解析函数
             yield scrapy.Request(url=item['link'], meta={'item': item}, callback=self.get_car_info, cookies=self.get_cookies())
 
-    def get_car_info(selfself, response):
+    def get_car_info(self, response):
         """二级页面解析函数: 里程 排量 变速箱"""
         # 获取上个解析函数传递过来的item对象
         item = response.meta['item']
