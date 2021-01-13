@@ -29,6 +29,30 @@ class Solution:
                 print()
                 curq, nextq = nextq, curq
 
+    def print_binary_tree_by_layer_reverse(self, root):
+        # 当前层
+        curq = [root]
+        # 下一层
+        nextq = []
+        # 层数 
+        i = 0
+
+        while curq:
+            node = curq.pop(0)
+            index = 0 if (-1) ** i > 0 else -1
+            print(node.value, end=' ')
+            # 左右孩子添加到下一层
+            binary_list = [node.left, node.right]
+            while binary_list:
+                next_node = binary_list.pop(index)
+                if next_node:
+                    nextq.append(next_node)
+
+            if not curq:
+                print()
+                curq, nextq = nextq[::-1], curq
+                i += 1
+
 if __name__ == '__main__':
     s = Solution()
     p1 = Node(1)
@@ -51,3 +75,4 @@ if __name__ == '__main__':
     p4.right = p9
     p5.left = p10
     s.print_binarytree_by_layer(p1)
+    s.print_binary_tree_by_layer_reverse(p1)
